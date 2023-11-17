@@ -18,7 +18,12 @@
     <div class="col-4">
     <%# TODO: Whole card can be clicked %>
     <%# TODO: Make background image work %>
-      <div class="card-index" style="background-image: url('<%= image_path "download.jpeg" %>');">
+    <% if list.photo.attached?  %>
+      <% url = cloudinary_url(list.photo.key) %>
+    <% else %>
+      <% url = 'https://res.cloudinary.com/dp39nvrov/image/upload/v1700209399/zcpcydx06mow2u1yrusb.jpg' %>
+    <% end %>
+      <div class="card-index"  style="background_image: url('<%= url %>.jpg')">
         <h5><%= link_to list.name, list_path(list) %></h5>
       </div>
     </div>
@@ -28,4 +33,4 @@
   <%= link_to "Create a New List", new_list_path, class: 'btn btn-primary' %>
 </div>
 
-
+<% console %>

@@ -2,6 +2,7 @@
 
 <%= simple_form_for @list do |f| %>
   <%= f.text_field :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
 
