@@ -1,12 +1,12 @@
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+<div class="navbar">
   <div class="ms-3"><i class="fa-solid fa-ticket fa-2xl"></i></div>
   <div>
     <%= link_to "Create a New List", new_list_path, class: 'btn btn-light' %>
     <%= link_to "My Lists", lists_path, class: 'btn btn-light' %>
   </div>
-</nav>
+</div>
 
-<div class="banner bg-image" src='assets/images/downloaded.jpeg' alt='...'>
+<div class="banner" src='assets/images/downloaded.jpeg' alt='...'>
   <h1>List: <%= @list.name %></h1>
 </div>
 
