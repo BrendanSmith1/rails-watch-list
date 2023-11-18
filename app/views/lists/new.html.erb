@@ -1,7 +1,10 @@
-<h1>Create a new list</h1>
+<%# TODO: Make background image work %>
+<div class="banner">
+  <h1>Create a new list</h1>
+</div>
 
 <%= simple_form_for @list do |f| %>
-  <%= f.text_field :name %>
+  <%= f.input :name %>
   <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>

@@ -17,7 +17,7 @@ movies = JSON.parse(movies_serialized)
 
 poster_base_url = "https://image.tmdb.org/t/p/w500"
 
-movies["results"].first(5).each do |movie|
+movies["results"].first(20).each do |movie|
   Movie.create!(title: movie["title"], overview: movie["overview"], poster_url: poster_base_url + movie["poster_path"], rating: movie["vote_average"])
 end
 
@@ -25,15 +25,18 @@ puts '5 Movies created'
 
 List.create!(name: 'Drama')
 List.create!(name: 'Action')
-List.create!(name: 'All Time Favourites')
+List.create!(name: 'Classics')
+List.create!(name: 'Sci-Fi')
+List.create!(name: 'Reality TV')
+List.create!(name: 'RomCom')
+List.create!(name: 'Personal Favourites')
 
-puts '3 Lists created'
+puts 'Lists created'
 
 # all_movies = Movie.all
 # all_movies.each_with_index do |movie|
 #   Bookmark.create!(comment: "Great List #{}", movie: movie, list: List.first)
 # end
-
 
 # puts 'Bookmarks created'
 
