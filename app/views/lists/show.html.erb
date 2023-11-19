@@ -1,5 +1,5 @@
 <div class="banner">
-  <h1>List: <%= @list.name %></h1>
+  <h1><%= @list.name %></h1>
 </div>
 
 <%# Chanege font to be in line with rest of doc %>
@@ -28,15 +28,45 @@
     <% end %>
   </div>
 
-<div class="p-3">
-  <h3>Add a new movie to the list <%= @list.name %></h3>
+  <div class="reviews">
+    <div class = "col-8">
+      <h3>Reviews</h3>
+      <% if @list.reviews.empty? %>
+        <p>Be the first to write a review!</p>
+      <% else %>
+      <% @list.reviews.each do |review| %>
+        <div class="review-card">
+          <p><%= review.rating %></p>
+          <p><%= review.content %></p>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
 
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.association :movie %>
-    <%= f.input :comment %>
-    <%= f.submit %>
-  <% end %>
-</div>
+    <div class="col-4">
+      <div class="review-form">
+        <h3>Leave a review for <%= @list.name %></h3>
+
+        <%= simple_form_for [@list, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3 mt-4">
+    <h3>Add a new bookmark to <%= @list.name %></h3>
+
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie %>
+      <%= f.input :comment %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+
 
 <br>
 
